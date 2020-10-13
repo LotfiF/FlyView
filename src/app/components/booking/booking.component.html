@@ -1,0 +1,114 @@
+<div class="flight-engine">
+  <div class="container">
+    <div class="tabing">
+      <ul>
+        <li>
+          <a class="active" routerLinkActive="active" routerLink="/flights"><i class="fa fa-plane"
+              aria-hidden="true"></i> View flights</a>
+        </li>
+        <li>
+          <a routerLinkActive="active" routerLink="/chart">Chart</a>
+        </li>
+      </ul>
+      <div class="tab-content">
+        <div id="1" class="tab1 active">
+          <div class="flight-tab row">
+          <form class="bookingForm" #bf="ngForm" (ngSubmit)="onSubmit(bf)">
+              <div class="persent-one num">
+                  <i class="fa fa-hashtag" aria-hidden="true"></i>
+                  <input type="text" id="nbrFlight" class="textboxstyle"
+                          ngModel
+                          #nbrFlight="ngModel"
+                          name="nbrFlight"
+                          pattern="^[A-Z]{2}\d{3}$"
+                          required>
+                  <div class="error" *ngIf="nbrFlight.invalid && (nbrFlight.dirty || nbrFlight.touched)">
+                    <p *ngIf="nbrFlight.errors.required">can't be blank</p>
+                    <p *ngIf="nbrFlight.errors.pattern">Must respect this pattern : "AB123"</p>
+                  </div>
+                </div>            
+            <div class="persent-one">
+              <i class="fa fa-map-marker" aria-hidden="true"></i>
+              <select type="text" id="fromCity" class="textboxstyle" 
+                      ngModel 
+                      #fromCity="ngModel"
+                      name="fromCity"
+                      required>
+                <option value="" selected>From City</option>
+                <option *ngFor="let city of cities" [ngValue]="city"
+                        [disabled]="city===toCity.value">{{ city }}</option>
+              </select>
+              <div class="error" *ngIf="fromCity.invalid && (fromCity.dirty || fromCity.touched)">
+                <p *ngIf="fromCity.errors.required">can't be blank</p>
+              </div>
+            </div>
+            <div class="persent-one">
+              <i class="fa fa-map-marker" aria-hidden="true"></i>
+              <select type="text" id="toCity" class="textboxstyle"
+                      ngModel
+                      #toCity="ngModel" 
+                      name="toCity"
+                      required>
+                <option value="" selected>To City</option>
+                <option *ngFor="let city of cities" [ngValue]="city"
+                        [disabled]="city===fromCity.value">{{ city }}</option>
+              </select>
+              <div class="error" *ngIf="toCity.invalid && (toCity.dirty || toCity.touched)">
+                <p *ngIf="toCity.errors.required">can't be blank</p>
+              </div>
+            </div>
+            <div class="persent-one less-per">
+              <i class="fa fa-calendar" aria-hidden="true"></i>
+              <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+              <input type="date" id="departDate" class="textboxstyle" 
+                      [ngModel]="defaultDate"
+                      (ngModelChange)="defaultDate = (departDate.value > returnDate.value) ? $event : defaultDate"
+                      #departDate="ngModel"
+                      name="departDate"
+                      [min]="today | date: 'yyyy-MM-dd'"
+                      required>
+              <div class="error" *ngIf="departDate.invalid && (departDate.dirty || departDate.touched)">
+                <p *ngIf="departDate.errors.required">can't be blank</p>
+              </div>
+            </div>
+            <div class="persent-one less-per">
+              <i class="fa fa-calendar" aria-hidden="true"></i>
+              <i class="fa fa-long-arrow-left" aria-hidden="true"></i>
+              <input type="date" id="returnDate" class="textboxstyle" 
+                      [ngModel]="defaultDate"
+                      #returnDate="ngModel"
+                      name="returnDate"
+                      [min]="departDate.value"
+                      required>
+              <div class="error" *ngIf="returnDate.invalid && (returnDate.dirty || returnDate.touched)">
+                <p *ngIf="returnDate.errors.required">can't be blank</p>
+              </div>
+            </div>
+            <div class="persent-one num">
+              <i class="fa fa-user" aria-hidden="true"></i>
+              <input type="number" id="nbrPassengers" class="textboxstyle"
+                      [ngModel]="defaultNbrPassengers"
+                      #nbrPassengers="ngModel"
+                      name="nbrPassengers"
+                      min=1
+                      max=10
+                      required>
+              <div class="error" *ngIf="nbrPassengers.invalid && (nbrPassengers.dirty || nbrPassengers.touched)">
+                <p *ngIf="nbrPassengers.errors.required">can't be blank</p>
+                <p *ngIf="nbrPassengers.errors.min">can't be lower than 0</p>
+                <p *ngIf="nbrPassengers.errors.max">can't be uper than 10</p>
+              </div>        
+            </div>
+            <div class="persent-one less-btn">
+              <input type="Submit" id="submit" class="btn btn-info cst-btn" 
+                      value="Submit!"
+                      [disabled]="bf.invalid"
+                      name="submit">
+            </div>
+          </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,30 @@
+<div class="container">
+  <h1>List of flights</h1>
+  <div class="accueil">
+    <a routerLink="/booking">Retour à l'accueil</a>
+  </div>
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>NUMBER</th>
+      <th>FROM CITY</th>
+      <th>TO CITY</th>
+      <th>DEPART DATE</th>
+      <th>RETURN DATE</th>
+      <th>NUMBER PASSENGERS</th>
+      <th>DELETE</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let flight of flights">
+      <td>{{ flight.nbrFlight }}</td>
+      <td>{{ flight.fromCity }}</td>
+      <td>{{ flight.toCity }}</td>
+      <td>{{ flight.departDate | date: 'dd-MM-yyyy' }}</td>
+      <td>{{ flight.returnDate | date: 'dd-MM-yyyy' }}</td>
+      <td>{{ flight.nbrPassengers }}</td>
+      <td><button (click)=deleteFlightByNbr(flight.nbrFlight)><i class="glyphicon glyphicon-trash"></i></button></td>
+    </tr>
+  </tbody>
+</table>
+</div>

@@ -1,0 +1,133 @@
+.flight-engine
+{
+    position: absolute;
+    top: 250px;
+    bottom: 50px;
+    padding: 20px;
+    z-index: 999;
+}
+.tab1.active
+{
+    display: block;
+}
+.tabing
+{
+    float: left;
+    width: 100%;
+    background: rgba(0, 130, 185, .8);
+    padding: 0px 20px 10px 20px;
+    color: #fff;
+}
+.tabing ul
+{
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+    width: 100%;
+    float: left;
+}
+.tabing ul li
+{
+    float: left;
+}
+.tabing ul li a
+{
+    display: block;
+    padding: 5px;
+    text-decoration: none;
+    color: #fff;
+    background: rgba(0, 185, 40, 0.9);
+    margin: 0 10px 0 0;
+    padding: 5px 10px 5px 10px;
+    border-radius: 0px 0px 5px 5px;
+    font-size: 16px;
+    text-align: left;
+}
+.tabing ul li a.active 
+{
+    background: #ba0400;
+}
+.flight-tab
+{
+    width: 100%;
+    float: left;
+    margin-top: 10px;
+    padding: 15px
+}
+.flight-tab .textboxstyle
+{
+    width: 100%;
+    float: left;
+    color: #191919;
+    padding: 8px 10px 8px 35px;
+    border: none;
+    border-radius: 3px;
+    background: #f5f5f5;
+    font-size: 14px;
+    line-height: 20px;
+}
+.persent-one
+{
+    width: 17%;
+    float: left;
+    margin-right: 1.5%;
+    position: relative;
+    margin-bottom: 10px;
+}
+.persent-one.num
+{
+    width: 10%;
+}
+.persent-one i
+{
+    position: absolute;
+    left: 10px;
+    top: 8px;
+    color: #191919;
+    font-size: 18px;
+}
+i.fa.fa-calendar
+{
+    top: 5px;
+}
+i.fa.fa-long-arrow-left, i.fa.fa-long-arrow-right
+{
+    top: 21px; 
+    color: #ba0400;
+}
+i.fa.fa-hashtag
+{
+    font-size: 15px;
+    top: 10px
+}
+.error
+{
+    color: yellow;
+}
+p
+{
+    margin: 0;
+    font-size: 0.8em;
+}
+.persent-one.less-per
+{
+    width: 16%;
+    float: left;
+    margin-right: 1%;
+}
+.persent-one.less-btn
+{
+    width: 5%;
+    float: right;
+    margin-right: 0;
+}
+.persent-one.less-btn .cst-btn
+{
+    width: 85px;
+    height: 85px;
+    border-radius: 100%;
+    position: absolute;
+    top: -32px;
+    background-color: rgb(7, 197, 245);
+    font-size: 1.2em;
+}
